@@ -1,0 +1,15 @@
+with open("ApplePieRecipe.txt",'r') as text, open("keyCode.txt",'r') as code:
+    text=text.read()
+    text=text[text.index('Instructions')+12:]
+    text=text.replace("\n"," ").split(' ')
+    code=code.read()
+    empt=[]
+    secret = ""
+
+    for x in text:
+        for y in code:
+            if x.find(y)>0 and len(x)>3:
+                empt.append(x)
+    for x in empt:
+        secret+=x[0]
+    print(secret)
